@@ -4,12 +4,15 @@ import Main from "./components/Main";
 import { CssBaseline } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
+import '../src/App.css';
 
 
 
 const useStyles = makeStyles((theme) => ({
   box: {
-    
+    backgroundColor:"rgb(16,16,16)",
+    width:"100vw"
+
     },
 }));
 

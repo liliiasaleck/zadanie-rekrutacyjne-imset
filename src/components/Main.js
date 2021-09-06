@@ -1,15 +1,17 @@
 import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import LastContainer from "./containers/LastContainer";
-import MainContainer from "./containers/MainContainer";
-import SecondContainer from "./containers/SecondContainer";
+import TopContainer from "./containers/TopContainer";
+import MiddleContainer from "./containers/MiddleContainer";
+import BottomContainer from "./containers/BottomContainer";
 
 const useStyles = makeStyles((theme) => ({
     box: {
-        backgroundColor: "pink",
-        width:"100vw",
-        height: "100vh"
+        height: "140vh",
+        overflowY: "auto",
+        marginLeft:"8rem",
+        marginRight:"8rem",
+
       },
 }));
 
@@ -17,9 +19,9 @@ export default function Main() {
   const classes = useStyles();
   return (
     <div className={classes.box}>
-      <MainContainer />
-      <SecondContainer />
-      <LastContainer />
+      <TopContainer />
+      <MiddleContainer />
+      <BottomContainer />
     </div>
   );
 }

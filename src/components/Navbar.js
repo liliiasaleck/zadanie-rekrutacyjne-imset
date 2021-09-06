@@ -14,87 +14,110 @@ import { BsPersonFill } from "react-icons/bs";
 const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "rgb(48,48,48)",
-    height: "50px",
+    height: "3rem",
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginLeft: "6.5rem",
+    marginBottom: "1rem",
+    background: "rgba(255,255,255, 0.2)",
+    borderRadius: "0",
+    width: "3rem",
+    height: "2.9rem",
   },
   title: {
     flexGrow: 1,
   },
   search: {
     position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
+    width: "80%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
       width: "auto",
     },
   },
   searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
+    padding: theme.spacing(2, 2),
+    height: "50%",
     position: "absolute",
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    color:"rgb(152,152,152)"
+    
   },
   inputRoot: {
     color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
       width: "20ch",
     },
+    fontSize:"13px"
   },
+  logIn: {
+    marginRight: "6rem",
+    fontSize:"12px",
+    color:"rgb(152,152,152)"
+  },
+  toolBar: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  right: {
+    display: "flex",
+    paddingBottom: "1rem",
+  },
+  rightText:{
+    display:"flex",
+    justifyContent:"space-between",
+    paddingTop:"0.4rem"
+  }
 }));
 
 export default function Navbar() {
   const classes = useStyles();
   return (
     <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          Vectra
-        </Typography>
-        <Typography>Centrum obsługi klienta</Typography>
-        <Typography>
-          <IoIosCall />
-          800 080 800
-        </Typography>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            placeholder="Szukaj"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ "aria-label": "search" }}
-          />
+      <Toolbar className={classes.toolBar}>
+        <div>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
         </div>
-        <Button color="inherit">
-          <BsPersonFill />
-          Strefa abonanta
-        </Button>
+        <div className={classes.right}>
+        <div className={classes.rightText}>
+          <Typography style={{paddingRight:"2rem", color:"rgb(152,152,152)"}} variant="body2">Centrum obsługi klienta</Typography>
+          <Typography variant="body2" style={{color:"#85b82b", fontWeight:"700"}}>
+            800 080 800
+          </Typography>
+          </div>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Szukaj"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+            />
+          </div>
+          <Button className={classes.logIn} >
+            <BsPersonFill />
+            Strefa abonanta
+          </Button>
+        </div>
       </Toolbar>
     </AppBar>
   );
